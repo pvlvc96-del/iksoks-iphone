@@ -1,10 +1,9 @@
-
-const CACHE_NAME = "iksoks-offline-v3";
+const CACHE_NAME = "iksoks-offline-v4";
 
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
-    "./style.css",
+    "./style-v2.css",
     "./app.js",
     "./manifest.webmanifest",
     "./icons/icon-192.png",
@@ -12,7 +11,6 @@ const FILES_TO_CACHE = [
     "./icons/apple-touch-icon.png"
 ];
 
-// Instalacija nove verzije
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -21,7 +19,6 @@ self.addEventListener("install", (event) => {
     );
 });
 
-// Brisanje prethodnih verzija keša
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((keys) => {
@@ -34,8 +31,8 @@ self.addEventListener("activate", (event) => {
     );
 });
 
-// Učitavanje fajlova iz keša, sa mreže ako nisu keširani
 self.addEventListener("fetch", (event) => {
+
     if (
         event.request.method !== "GET" ||
         new URL(event.request.url).origin !== self.location.origin
@@ -44,8 +41,15 @@ self.addEventListener("fetch", (event) => {
     }
 
     event.respondWith(
-        caches.match(event.request).then((cached) => {
-            return cached || fetch(event.request);
-        })
+        fetch(event.request)
+            .then((response) => {
+                const copy = response.clone();
+
+                caches.open(CACHE_NAME)
+                    .then((cache) => cache.put(event.request, copy));
+
+                return response;
+            })
+            .catch(() => caches.match(event.request))
     );
 });
