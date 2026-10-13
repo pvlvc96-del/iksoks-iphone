@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "iksoks-offline-v2";
+const CACHE_NAME = "iksoks-offline-v3";
 
 const FILES_TO_CACHE = [
     "./",
