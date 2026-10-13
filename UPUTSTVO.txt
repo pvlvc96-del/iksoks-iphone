@@ -1,0 +1,35 @@
+IKS-OKS ZA iPHONE — UPUTSTVO
+
+Sadržaj:
+index.html — glavna stranica
+style.css — izgled
+app.js — logika, dva igrača i AI (lako/srednje/teško)
+manifest.webmanifest — podaci za instalaciju
+sw.js — offline rad
+icons/ — ikonice
+
+OBJAVLJIVANJE (GitHub Pages):
+1. Otvori https://github.com i napravi besplatan nalog ako ga nemaš.
+2. Klikni New repository. Nazovi ga npr. iksoks-iphone i izaberi Public.
+3. Klikni Create repository.
+4. Otvori Add file → Upload files.
+5. Izvuci sadržaj ZIP arhive na računaru. Učitaj SVE fajlove i folder icons (ne samo ZIP).
+   Važno: index.html mora biti u korenu repozitorijuma.
+6. Klikni Commit changes.
+7. Otvori Settings → Pages → Build and deployment.
+8. Pod Source izaberi Deploy from a branch; Branch: main, folder: /(root), pa Save.
+9. Sačekaj nekoliko minuta. GitHub će prikazati javni URL, obično:
+   https://TVOJE-IME.github.io/iksoks-iphone/
+10. Otvori taj URL u Safariju na iPhone-u.
+11. Safari → Share (Podeli) → Add to Home Screen (Dodaj na početni ekran).
+    Ako postoji opcija Open as Web App, uključi je. Potvrdi Add.
+12. Pokreni IKS-OKS preko ikonice sa početnog ekrana.
+    Nakon prvog uspešnog učitavanja, radi i bez interneta.
+
+Napomene:
+- Ovo je PWA, ne App Store .ipa aplikacija.
+- Rezultati se čuvaju lokalno na uređaju.
+- Promena režima resetuje rezultat.
+- Za novu verziju promeni NAME u sw.js (npr. v2), pa ponovo objavi fajlove.
+- Ne otvaraj index.html direktno sa iPhone Files aplikacije za instalaciju;
+  za PWA je potreban HTTPS hosting.
