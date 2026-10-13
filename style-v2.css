@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -10,14 +9,20 @@ html {
 body {
     margin: 0;
     color: #f8fafc;
+
     background: radial-gradient(
         ellipse at top,
         #273e59,
         #111c2e 60%,
         #0c1322
     );
-    font-family: -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", sans-serif;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
     min-height: 100vh;
     min-height: 100dvh;
 }
@@ -25,11 +30,16 @@ body {
 main {
     max-width: 480px;
     margin: auto;
+
     padding:
         max(30px, env(safe-area-inset-top))
         20px
         max(25px, env(safe-area-inset-bottom));
 }
+
+/* =========================
+   HEADER
+   ========================= */
 
 header {
     text-align: center;
@@ -60,7 +70,9 @@ header p {
     margin: 0;
 }
 
-/* PODESAVANJA */
+/* =========================
+   PODESAVANJA
+   ========================= */
 
 .settings {
     background: #1d2c42;
@@ -72,23 +84,31 @@ header p {
 .modes {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     background: #101b2d;
+
     border-radius: 12px;
+
     padding: 5px;
     gap: 5px;
 }
 
-button, select {
+button,
+select {
     font: inherit;
 }
 
 .modes button {
     border: 0;
     border-radius: 9px;
+
     background: transparent;
+
     color: #b4c3d8;
+
     font-weight: 750;
     padding: 12px 3px;
+
     font-size: 13px;
 }
 
@@ -99,7 +119,9 @@ button, select {
 
 #difficultyWrap {
     padding: 14px 4px 2px;
+
     color: #a4b6ca;
+
     font-size: 13px;
 }
 
@@ -109,41 +131,58 @@ button, select {
 
 select {
     width: 100%;
+
     margin-top: 7px;
+
     background: #14233a;
     color: white;
+
     border: 1px solid #516681;
     border-radius: 10px;
+
     padding: 11px;
 }
 
-/* REZULTATI */
+/* =========================
+   REZULTAT
+   ========================= */
 
 .scores {
     display: grid;
+
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
     gap: 10px;
+
     margin: 18px 0;
 }
 
 .scores > div {
     border: 1px solid #3b4d66;
     border-radius: 15px;
+
     background: #1d2c42;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
+    justify-content: center;
+
     padding: 12px;
 }
 
 .scores small {
     font-size: 10px;
+
     color: #a4b6ca;
+
     font-weight: 750;
 }
 
 .scores strong {
     font-size: 29px;
+
     margin-top: 5px;
 }
 
@@ -155,19 +194,26 @@ select {
     color: #79cbff;
 }
 
-/* STATUS */
+/* =========================
+   STATUS
+   ========================= */
 
 #status {
     text-align: center;
+
     font-size: 18px;
     font-weight: 800;
+
     margin: 22px 0;
 }
 
-/* TABLA - FIKSNE JEDNAKE DIMENZIJE */
+/* =========================
+   TABLA 3x3
+   ========================= */
 
 .board {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 
@@ -177,7 +223,16 @@ select {
     gap: 9px;
 }
 
+/* =========================
+   POLJA
+   ========================= */
+
 .board button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
 
@@ -185,37 +240,84 @@ select {
     min-height: 0;
 
     padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0;
 
     border-radius: 16px;
+
     background: #21334c;
+
     border: 1px solid #435873;
 
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
     font-size: 72px;
+
     font-weight: 900;
+
     line-height: 1;
 
     appearance: none;
     -webkit-appearance: none;
+
+    touch-action: manipulation;
+
+    color: #ffffff;
 }
 
-/* DUGMAD */
+/* =========================
+   BOJE X I O
+   ========================= */
+
+.board button.x {
+    color: #ff7886 !important;
+}
+
+.board button.o {
+    color: #79cbff !important;
+}
+
+/* =========================
+   POBEDA
+   ========================= */
+
+.board button.win {
+    background: #235d50 !important;
+    border-color: #55d5ad !important;
+}
+
+/* Safari/iPhone ponekad menja disabled izgled */
+
+.board button:disabled {
+    opacity: 1;
+    -webkit-text-fill-color: currentColor;
+}
+
+/* =========================
+   AKCIONA DUGMAD
+   ========================= */
 
 .actions {
     display: grid;
+
     grid-template-columns: 1.2fr 1fr;
+
     gap: 10px;
+
     margin-top: 22px;
 }
 
 .actions button {
     padding: 15px 6px;
+
     border: 0;
     border-radius: 13px;
+
     font-weight: 800;
+
     font-size: 13px;
 }
 
@@ -226,19 +328,29 @@ select {
 
 #reset {
     background: #2c4059;
-    color: #fff;
+    color: #ffffff;
 }
+
+/* =========================
+   FOOTER
+   ========================= */
 
 footer {
     text-align: center;
+
     font-size: 10px;
+
     color: #91a4bd;
+
     margin-top: 23px;
 }
 
-/* MANJI EKRANI */
+/* =========================
+   MANJI EKRANI
+   ========================= */
 
 @media (max-width: 350px) {
+
     main {
         padding-left: 12px;
         padding-right: 12px;
@@ -250,6 +362,7 @@ footer {
 
     .board button {
         border-radius: 12px;
-        font-size: 48px;
+
+        font-size: 54px;
     }
 }
